@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "SprayCam/Spray Composite"
 {
 	Properties
@@ -43,7 +45,7 @@ Shader "SprayCam/Spray Composite"
 				{
 					VertexToFragment output;
 
-					output.position = mul(UNITY_MATRIX_MVP, vertex.position);
+					output.position = UnityObjectToClipPos(vertex.position);
 					output.uv = vertex.uv;
 
 					return output;

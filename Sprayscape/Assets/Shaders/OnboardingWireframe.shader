@@ -1,4 +1,6 @@
-﻿Shader "SprayCam/Onboarding Wireframe"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "SprayCam/Onboarding Wireframe"
 {
 	Properties
 	{
@@ -45,7 +47,7 @@
 				{
 					VertexToFragment output;
 
-					output.position = mul(UNITY_MATRIX_MVP, vertex.position);
+					output.position = UnityObjectToClipPos(vertex.position);
 					output.uv = vertex.uv;
 
 					return output;
